@@ -42,7 +42,12 @@ Seven Dense layers (2048 → 1024 → 512 → 256 → 128 → 64 → 32 → 1) w
 
 | Split | MAE | MSE | R² |
 |-------|-----|-----|----|
-| Train | — | — | — |
-| Test  | — | — | — |
+| Train | $1,587.90 | 3,523,282 | 0.911 |
+| Test  | $2,569.52 | 15,073,126 | 0.887 |
 
-*(Fill in after running)*
+## Observations
+
+- Test R² of **0.887** means the model explains ~89% of the variance in car prices on unseen data — a strong result for this dataset.
+- The train/test gap (MAE +62%, MSE ×4) indicates **moderate overfitting**, which is expected: the dataset has only ~190 rows after preprocessing, while the network has millions of parameters. Regularisation (L2 + Dropout + BatchNorm) limits but cannot eliminate this on such a small dataset.
+- A shallower architecture (e.g. 3 layers: 256 → 128 → 64) would likely generalise better. The deep network is intentional here to explore the effect of depth and regularisation on a small dataset.
+- Early stopping triggered well before 200 epochs in all runs, confirming the model converges quickly relative to its capacity.
