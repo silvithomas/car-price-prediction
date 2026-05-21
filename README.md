@@ -32,11 +32,11 @@ python car_price_prediction.py
 ## Model architecture
 
 Seven Dense layers (2048 → 1024 → 512 → 256 → 128 → 64 → 32 → 1) with:
-- L2 regularisation (λ = 0.005) on each Dense layer
-- Batch normalisation + LeakyReLU after each layer
-- 50 % Dropout for regularisation
-- Adam optimiser with exponential learning-rate decay
-- Early stopping on validation loss (patience = 10)
+- L2 regularisation (λ = 0.005) on each Dense layer.
+- Batch normalisation + LeakyReLU after each layer.
+- 50 % Dropout for regularisation.
+- Adam optimiser with exponential learning rate decay.
+- Early stopping on validation loss (patience = 10).
 
 ## Results
 
